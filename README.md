@@ -47,14 +47,3 @@ Para correr el proyecto en tu máquina local, sigue estos pasos:
    ```bash
    npm run preview
    ```
-
----
-
-## ⚙️ Configuración del Servidor y DNS (cPanel)
-
-Para apuntar el subdominio `avimar.pixmedia.agency` a GitHub Pages, se ha configurado un archivo `CNAME` en el directorio `public` y se debe añadir el siguiente registro en la configuración DNS de cPanel:
-
-- **Tipo:** `CNAME`
-- **Nombre/Host:** `avimar` (o `avimar.pixmedia.agency.`)
-- **Valor/Destino:** `Willy100fuegos.github.io.`
-- **TTL:** `14400` (o automático)
