@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --font-label: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Background scale */
+  --background-50: 1 0 0;
+  --background-100: 0.99 0 0;
+  --background-200: 0.98 0 0;
+  --background-300: 0.95 0 0;
+  --background-400: 0.92 0 0;
+  --background-500: 0.88 0 0;
+  --background-600: 0.80 0 0;
+  --background-700: 0.70 0 0;
+  --background-800: 0.60 0 0;
+  --background-900: 0.50 0 0;
+  --background-950: 0.40 0 0;
+
+  /* Primary - Azul Marino */
+  --primary-50: 0.95 0.01 250;
+  --primary-100: 0.90 0.02 250;
+  --primary-200: 0.80 0.04 250;
+  --primary-300: 0.65 0.06 250;
+  --primary-400: 0.40 0.07 250;
+  --primary-500: 0.22 0.08 255;
+  --primary-600: 0.18 0.07 255;
+  --primary-700: 0.15 0.06 255;
+  --primary-800: 0.12 0.05 255;
+  --primary-900: 0.08 0.04 255;
+  --primary-950: 0.05 0.03 255;
+
+  /* Accent - Naranja Seguridad */
+  --accent-50: 0.97 0.02 45;
+  --accent-100: 0.92 0.05 45;
+  --accent-200: 0.85 0.09 45;
+  --accent-300: 0.75 0.13 45;
+  --accent-400: 0.68 0.16 45;
+  --accent-500: 0.62 0.18 45;
+  --accent-600: 0.55 0.16 45;
+  --accent-700: 0.45 0.14 45;
+  --accent-800: 0.35 0.11 45;
+  --accent-900: 0.25 0.08 45;
+  --accent-950: 0.15 0.05 45;
+
+  /* Secondary - Gris Acero */
+  --secondary-50: 0.97 0.01 245;
+  --secondary-100: 0.92 0.02 245;
+  --secondary-200: 0.85 0.03 245;
+  --secondary-300: 0.75 0.03 245;
+  --secondary-400: 0.70 0.03 245;
+  --secondary-500: 0.65 0.03 245;
+  --secondary-600: 0.58 0.03 245;
+  --secondary-700: 0.50 0.03 245;
+  --secondary-800: 0.40 0.03 245;
+  --secondary-900: 0.30 0.03 245;
+  --secondary-950: 0.20 0.03 245;
+
+  /* Foreground - Carbón */
+  --foreground-50: 0.95 0.01 250;
+  --foreground-100: 0.85 0.02 250;
+  --foreground-200: 0.75 0.03 250;
+  --foreground-300: 0.65 0.04 250;
+  --foreground-400: 0.50 0.05 250;
+  --foreground-500: 0.35 0.05 250;
+  --foreground-600: 0.25 0.05 250;
+  --foreground-700: 0.17 0.04 250;
+  --foreground-800: 0.12 0.04 250;
+  --foreground-900: 0.08 0.04 250;
+  --foreground-950: 0.05 0.03 250;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: oklch(var(--foreground-950));
+  background-color: oklch(var(--background-50));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero parallax */
+.hero-parallax {
+  will-change: transform;
+}
+
+/* Custom Leaflet markers */
+.leaflet-marker-icon.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.marker-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  background: oklch(var(--accent-500));
+  border: 3px solid white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.marker-pin::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+}
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet popup styling */
+.leaflet-popup-content-wrapper {
+  background: oklch(var(--background-50));
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border: 1px solid oklch(var(--background-200) / 0.7);
+}
+
+.leaflet-popup-tip {
+  background: oklch(var(--background-50));
+  border: 1px solid oklch(var(--background-200) / 0.7);
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: oklch(var(--foreground-800));
+}
+
+.leaflet-popup-content h3 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: oklch(var(--foreground-950));
+}
+
+.leaflet-popup-content .avimar-hub-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: oklch(var(--accent-500));
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leaflet-container {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.leaflet-control-zoom a {
+  background: oklch(var(--background-50));
+  color: oklch(var(--foreground-700));
+  border: 1px solid oklch(var(--background-200) / 0.7);
+  border-radius: 4px;
+}
+
+.leaflet-control-zoom a:hover {
+  background: oklch(var(--background-100));
+  color: oklch(var(--foreground-950));
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+}
+
+/* Carousel dots */
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: oklch(var(--background-300));
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: oklch(var(--accent-500));
+  width: 24px;
+  border-radius: 4px;
+}
