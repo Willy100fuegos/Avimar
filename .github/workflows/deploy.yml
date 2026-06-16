@@ -1,0 +1,36 @@
+# Workflow para compilar y desplegar el proyecto Vite + React a GitHub Pages
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # O la rama principal de tu repositorio
+
+# Permisos requeridos para escribir en Pages
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+          cache: 'npm'
+
+      - name: Install Dependencies 🔧
+        run: npm ci
+
+      - name: Build Project 🏗️
+        run: npm run build
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out # Carpeta que configuramos en vite.config.ts (build.outDir: 'out')
+          branch: gh-pages # Se subirá la build estática a esta rama autogenerada
