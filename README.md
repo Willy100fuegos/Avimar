@@ -38,7 +38,7 @@ Para correr el proyecto en tu máquina local, sigue estos pasos:
    npm run dev
    ```
 
-3. Construye el proyecto para producción:
+3. Construye el proyecto para producción (genera la carpeta `out/`):
    ```bash
    npm run build
    ```
@@ -47,3 +47,15 @@ Para correr el proyecto en tu máquina local, sigue estos pasos:
    ```bash
    npm run preview
    ```
+
+5. Verificación de calidad y tipado:
+   ```bash
+   npm run lint
+   npm run type-check
+   ```
+
+---
+
+## ⚙️ Variables de Entorno (Opcional)
+
+Puedes revisar `.env.example` para configurar variables opcionales de compilación como `BASE_PATH`, `PROJECT_ID` o `VERSION_ID` creando un archivo `.env.local`.
